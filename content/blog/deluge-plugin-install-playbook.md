@@ -34,12 +34,14 @@ date: 2026-03-02T02:01:48.560Z
 
 ## 推荐安装流程（稳定版）
 
-### 1) 把插件文件直接复制到插件目录（不要依赖 Web 上传）
+### 1) 先拿到插件文件，再复制到插件目录（不要依赖 Web 上传）
 
 ```bash
-PLUGIN_EGG="/Users/administrator/Downloads/your-plugin.egg"
+PLUGIN_URL="https://github.com/ratanakvlun/deluge-ltconfig/releases/download/v2.0.0/ltConfig-2.0.0.egg"
+PLUGIN_EGG="/tmp/$(basename "${PLUGIN_URL%%\?*}")"
 PLUGIN_DIR="/Users/administrator/.config/deluge/plugins"
 
+curl -L "$PLUGIN_URL" -o "$PLUGIN_EGG"
 mkdir -p "$PLUGIN_DIR"
 cp -f "$PLUGIN_EGG" "$PLUGIN_DIR/"
 ```
@@ -90,14 +92,21 @@ deluge-console -d 127.0.0.1 -p 58846 -U "$DELUGE_USER" -P "$DELUGE_PASS" "plugin
 #!/usr/bin/env bash
 set -euo pipefail
 
-PLUGIN_EGG="${1:?Usage: install-deluge-plugin.sh /abs/path/plugin.egg [PluginId]}"
+PLUGIN_SOURCE="${1:?Usage: install-deluge-plugin.sh /abs/path/plugin.egg|URL [PluginId]}"
 PLUGIN_ID="${2:-}"
 PLUGIN_DIR="$HOME/.config/deluge/plugins"
-PLUGIN_BASENAME="$(basename "$PLUGIN_EGG")"
 
-if [[ ! -f "$PLUGIN_EGG" ]]; then
-  echo "ERROR: file not found: $PLUGIN_EGG" >&2
-  exit 1
+if [[ "$PLUGIN_SOURCE" =~ ^https?:// ]]; then
+  PLUGIN_BASENAME="$(basename "${PLUGIN_SOURCE%%\?*}")"
+  PLUGIN_EGG="${TMPDIR:-/tmp}/$PLUGIN_BASENAME"
+  curl -L "$PLUGIN_SOURCE" -o "$PLUGIN_EGG"
+else
+  PLUGIN_EGG="$PLUGIN_SOURCE"
+  PLUGIN_BASENAME="$(basename "$PLUGIN_EGG")"
+  if [[ ! -f "$PLUGIN_EGG" ]]; then
+    echo "ERROR: file not found: $PLUGIN_EGG" >&2
+    exit 1
+  fi
 fi
 
 mkdir -p "$PLUGIN_DIR"
@@ -129,7 +138,9 @@ deluge-console -d 127.0.0.1 -p 58846 -U "$DELUGE_USER" -P "$DELUGE_PASS" "plugin
 使用示例：
 
 ```bash
-bash install-deluge-plugin.sh /Users/administrator/Downloads/ltConfig-2.0.0.egg ltConfig
+bash install-deluge-plugin.sh \
+  "https://github.com/ratanakvlun/deluge-ltconfig/releases/download/v2.0.0/ltConfig-2.0.0.egg" \
+  ltConfig
 ```
 
 ---
@@ -137,6 +148,7 @@ bash install-deluge-plugin.sh /Users/administrator/Downloads/ltConfig-2.0.0.egg 
 ## 针对 ltConfig 的已验证结果（本机）
 
 - 可识别版本：`ltConfig-2.0.0.egg`
+- 推荐来源：`https://github.com/ratanakvlun/deluge-ltconfig/releases/download/v2.0.0/ltConfig-2.0.0.egg`
 - 插件文件应位于：
   - `/Users/administrator/.config/deluge/plugins/ltConfig-2.0.0.egg`
 - 避免保留错误文件名：
@@ -168,7 +180,8 @@ bash install-deluge-plugin.sh /Users/administrator/Downloads/ltConfig-2.0.0.egg 
 
 ```text
 按我这份《deluge-plugin-install-playbook.md》执行插件安装。
-插件文件路径：/Users/administrator/Downloads/xxx.egg
+插件来源：/abs/path/xxx.egg 或 https://example.com/xxx.egg
 请直接完成：复制到插件目录、重启服务、识别并启用插件、最后给我验证结果。
 若失败，请按文档的排障清单继续处理到成功。
 ```
+
