@@ -119,6 +119,31 @@ lsof -nP -iTCP -sTCP:LISTEN | rg 'deluged|deluge-web|:58846|:8112'
 curl -I http://127.0.0.1:8112
 ```
 
+### 3.4 双栈环境的额外一步（建议保留）
+
+在 `libtorrent 1.2.20` 下，如果 `listen_interface` 留空，Deluge 可能只绑定 IPv4。
+
+如果你的机器同时有公网 v4 / v6，建议在首次启动后显式指定活跃网卡名，例如 `en0`：
+
+```bash
+deluge-console "config -s listen_interface en0"
+deluge-console "config listen_interface"
+
+uid=$(id -u)
+launchctl kickstart -k "gui/$uid/com.deluge.deluged"
+sleep 2
+
+lsof -nP -iTCP -sTCP:LISTEN | rg 'deluged|:36881'
+lsof -nP -iUDP | rg 'deluged|:36881'
+```
+
+预期现象：
+
+- `listen_interface` 显示为 `en0`
+- `36881` 同时出现 `IPv4` 与 `IPv6` 监听
+
+如果你的活跃接口不是 `en0`，把命令里的 `en0` 换成实际接口名即可。
+
 预期关键输出：
 
 - `deluged --version` 包含 `libtorrent: 1.2.20.0`
