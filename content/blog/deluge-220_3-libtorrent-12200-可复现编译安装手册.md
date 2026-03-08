@@ -119,7 +119,22 @@ lsof -nP -iTCP -sTCP:LISTEN | rg 'deluged|deluge-web|:58846|:8112'
 curl -I http://127.0.0.1:8112
 ```
 
-### 3.4 双栈环境的额外一步（建议保留）
+### 3.4 固定入站端口（本机约定）
+
+为便于路由器端口映射、tracker 识别和后续排障，本机固定使用 `36881` 作为 Deluge 入站端口：
+
+```bash
+deluge-console "config -s random_port false"
+deluge-console "config -s listen_ports [36881, 36881]"
+deluge-console "config listen_ports"
+```
+
+预期现象：
+
+- `listen_ports` 显示为 `[36881, 36881]`
+- 后续 `lsof`、路由器映射、tracker 页面都统一围绕 `36881` 核对
+
+### 3.5 双栈环境的额外一步（建议保留）
 
 在 `libtorrent 1.2.20` 下，如果 `listen_interface` 留空，Deluge 可能只绑定 IPv4。
 
