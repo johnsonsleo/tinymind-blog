@@ -486,7 +486,7 @@ hermes gateway start
 
 you now have a 24/7 AI agent running on your machine, accessible via Telegram, with automated research jobs.
 
-\----
+
 
 if you want to go further, here are everything you need for the full setup (one weekend)
 
