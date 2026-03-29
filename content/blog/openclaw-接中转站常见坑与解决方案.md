@@ -181,7 +181,7 @@ OpenClaw 有两处 provider 配置需要**同步修改**：
 2. 再看 OpenClaw 实际请求路径和头；
 3. 最后统一检查 `openclaw.json` + `agents/main/agent/models.json`两处配置是否一致。
 
-②补充个今天的踩坑，gpt5.3-codex配置里没加推理，只会回复文字不干活，penclaw.json和agent的model.json两处都要加
+②补充个今天的踩坑，gpt5.3-codex配置里没加推理，只会回复文字不干活，openclaw.json和agent的model.json两处都要加
 
 ```json
 "compat": {
