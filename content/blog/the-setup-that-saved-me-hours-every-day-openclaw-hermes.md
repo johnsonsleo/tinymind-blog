@@ -1,5 +1,5 @@
 ---
-title: Hermes Agent Setting up
+title: The Setup That Saved Me Hours Every Day: OpenClaw + Hermes
 date: 2026-03-27T16:14:02.350Z
 ---
 
