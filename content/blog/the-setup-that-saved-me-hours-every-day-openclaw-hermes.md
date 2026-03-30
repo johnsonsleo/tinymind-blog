@@ -1,3 +1,8 @@
+---
+title: Hermes Agent Setting up
+date: 2026-03-27T16:14:02.350Z
+---
+
 ![圖片](https://p.sda1.dev/31/ed709056ae3137eaa4f42e585282dfcb/The-Setup-img-001.jpg)
 
 ## The Setup That Saved Me Hours Every Day: OpenClaw + Hermes
