@@ -1,6 +1,5 @@
 ---
 title: The Setup That Saved Me Hours Every Day: OpenClaw + Hermes
-date: 2026-03-02T14:09:06.977Z
 ---
 
 
