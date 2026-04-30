@@ -3,7 +3,8 @@ title: Ghostty 终端入门指南：安装、配置
 date: 2026-03-17T00:40:42.909Z
 ---
 
-## Ghostty 终端入门指南：安装、配置
+
+## [Ghostty 终端入门指南：安装、配置](https://x.com/alin_zone/status/2033524177295274496?s=20)
 
 ## Ghostty 是什么
 
