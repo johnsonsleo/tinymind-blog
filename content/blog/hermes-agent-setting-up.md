@@ -3,9 +3,10 @@ title: Hermes Agent Setting up
 date: 2026-03-27T16:14:02.350Z
 ---
 
-![圖片](https://p.sda1.dev/31/daa17d0b44933286a2d27797eca871fc/image.png)
 
-## Living With an AI agent - My Full Setup After 2 Months
+![圖片](https://i.imgur.com/3PlWC4L.png)
+
+## [Living With an AI agent - My Full Setup After 2 Months](https://x.com/witcheer/status/2037528582298194123?s=20)
 
 I wake up at 7am and there's a briefing in my Telegram. overnight moves, arXiv papers on AI agents, Hacker News threads worth reading, Reddit posts from r/LocalLLaMA, and a prioritised list of what I should focus on today, cross-referenced against my actual projects and deadlines.
 
