@@ -3,6 +3,7 @@ title: Openclaw docker手动部署指南(详细版)
 date: 2026-03-23T17:52:07.915Z
 ---
 
+
 部署的时候我找了很多docker部署的公众号，虽然说官方也有文档，但是实际部署时候问题很多。[写在这里供大家参考吧](https://linux.do/t/topic/1636463)。注意，在本地电脑docker部署的话，可能会遇到更多问题。我这个是在云服务器上部署的，操作系统是debian 13，安装了1panel面板。面板上可以直接安装openclaw，但是好像不能自定义模型。
 
 
@@ -14,7 +15,7 @@ date: 2026-03-23T17:52:07.915Z
 
 它支持非常多的渠道，我选择了 Telegram。因为小龙虾的能力上限取决于模型能力，所以毋庸置疑，直接选择当前的顶级模型，Claude 或者 GPT，那结论就出来了，最佳配置方案：**海外云 VPS + Telegram + 顶级模型**。
 
-![image|690x371](https://p.sda1.dev/31/35bb45058da83e0fe542d53f3290a2e2/openclaw-docker-img-001.jpg)
+![image|690x371](https://i.imgur.com/KcfJyDs.png)
 
 
 先阅读一下部署文档再动手：<https://github.com/openclaw/openclaw/blob/main/docs/install/docker.md>
@@ -42,11 +43,11 @@ cd openclaw
 
 ### 1.2 Docker 启动 OpenClaw 后会自动打开配置引导
 
-![image|690x418](https://p.sda1.dev/31/349a72070a717e12d4b7be2f6e725239/openclaw-docker-img-002.png)
+![image|690x418](https://i.imgur.com/HJCGVnY.png)
 
 
 先选择 **Skip for now** 跳过
-![image|690x418](https://p.sda1.dev/31/4a9ceae8fc16044a261174f480b8f698/openclaw-docker-img-003.png)
+![image|690x418](https://i.imgur.com/uHRofIj.png)
 
 
 消息渠道我想用 Telegram，所以需要先做两件事：
@@ -55,7 +56,7 @@ cd openclaw
 2. 搜索 `@BotFather`，创建机器人，先创建机器人名（昵称），再创建机器人用户名，创建好之后会给你一个 Bot API Token，**记住这个 Token**
 3. 等到 **Telegram (Bot API)** 这里的时候需要填上一步获取的 Bot API Token
 
-![image|690x418](https://p.sda1.dev/31/bbbfb0fe40a595b8ad95ff0167d60972/openclaw-docker-img-004.png)
+![image|690x418](https://i.imgur.com/8xehSnM.png)
 
 
 然后就是一路跳过，hooks 这里选择：`session-memory`
@@ -90,7 +91,7 @@ docker compose run --rm openclaw-cli pairing approve telegram YKEY9974
 
 配对成功：
 
-![image|690x230](https://p.sda1.dev/31/329e169d0f5263823d8d79dfb11c2366/openclaw-docker-img-005.png)
+![image|690x230](https://i.imgur.com/HTOtCWa.png)
 
 
 ---
@@ -134,7 +135,7 @@ docker compose run --rm openclaw-cli pairing approve telegram YKEY9974
 
 因为我用的是智谱的模型，所以可以用这几个专属的 MCP，应该比第三方 MCP 的效果要好。先装上再说，不好用到时候再换就行。
 
-![image|504x405](https://p.sda1.dev/31/f09c7e3237ef56349210f0e8e552f334/openclaw-docker-img-006.png)
+![image|504x405](https://i.imgur.com/BRWAXor.png)
 
 ---
 
