@@ -3,7 +3,8 @@ title: 万字保姆级教程：Hermes+Kimi K2.6 打造7x24h Agent军团
 date: 2026-04-21T15:59:05.344Z
 ---
 
-# 万字保姆级教程：Hermes+Kimi K2.6 打造7x24h Agent军团
+
+# [万字保姆级教程：Hermes+Kimi K2.6 打造7x24h Agent军团](https://mp.weixin.qq.com/s/x_Jtmk4-ThuNtZTGqJqncQ)
 
 大家好，我是苍何。
 
