@@ -4,7 +4,8 @@ date: 2026-04-01T17:55:15.181Z
 ---
 
 
-## [Claude Code Auto Mode 的实现](https://blog.sorrycc.com/claude-code-auto-mode)
+## (Claude Code Auto Mode 的实现)(https://blog.sorrycc.com/claude-code-auto-mode)
+
 
 
 ## Auto Mode 详解（Claude Code 2.1.81）
