@@ -3,9 +3,10 @@ title: The Setup That Saved Me Hours Every Day —— OpenClaw + Hermes
 date: 2026-03-30T16:58:21.291Z
 ---
 
-![圖片](https://p.sda1.dev/31/ed709056ae3137eaa4f42e585282dfcb/The-Setup-img-001.jpg)
 
-## The Setup That Saved Me Hours Every Day: OpenClaw + Hermes
+![圖片](https://i.imgur.com/p7tLeY3.png)
+
+## [The Setup That Saved Me Hours Every Day: OpenClaw + Hermes](https://x.com/gkisokay/status/2037902655016804496?s=20)
 
 You built OpenClaw to run your crons, score your signals, draft your posts. Instead you're spending half your day reading error logs, restarting failed jobs, and debugging bad outputs. You didn't sign up to be a DevOps engineer. You signed up to build.
 
@@ -19,7 +20,7 @@ Hermes watches the work. OpenClaw does the work. You verify and approve. That's 
 
 Two bots. Two roles. One human.
 
-![圖片](https://p.sda1.dev/31/0b06203232ecd06b09fb402702a6c1d7/The-Setup-img-002.png)
+![圖片](https://i.imgur.com/vuddkWY.png)
 
 OpenClaw posts to your output channels like it always has. Hermes watches those channels and reviews what OpenClaw produces. If everything looks right, Hermes sends an [ACK] and the loop closes. If something's off, Hermes escalates to you with a specific reason. You make one decision and move on.
 
@@ -129,7 +130,7 @@ That's the ops agent's half. Hermes already has its half from Step 4. Both sides
 
 Four markers. Strict rules. No exceptions.
 
-![圖片](https://p.sda1.dev/31/5ef1e309e4255c2c5c9aa65104236ea5/The-Setup-img-003.png)
+![圖片](https://i.imgur.com/n8pAys6.png)
 
 **The rules that prevent chaos:**
 
@@ -179,7 +180,7 @@ This is where most multi-agent setups fail. Two bots that can both read and writ
 
 The worst case is: STATUS_REQUEST → REVIEW_REQUEST → ACK (3 messages). The best case is: STATUS_REQUEST → ACK (2 messages). There is no case where the loop runs longer than 3 turns. That's by design.
 
-![圖片](https://p.sda1.dev/31/0ab2008ff21d505b73546a7dd3ada5cf/The-Setup-img-004.jpg)
+![圖片](https://i.imgur.com/Qqxfpee.png)
 
 The agents in action
 
@@ -189,7 +190,7 @@ This pattern isn't about ops efficiency. Efficiency is a side effect.
 
 The real shift is **cognitive**. When you're the only one watching your agent, part of your brain is always in ops mode. Scanning for failures. Second-guessing outputs. Running mental checklists. That background anxiety doesn't show up on any time tracker, but it's the thing that prevents you from going deep on creative work.
 
-![圖片](https://p.sda1.dev/31/ee84fb41a6180e197d97b76bdab0157d/The-Setup-img-005.png)
+![圖片](https://i.imgur.com/n18CC6b.png)
 
 The supervisor pattern eliminates that background load. Not because the ops work disappears, but because someone else is doing it. Hermes holds the ops context so you don't have to. Your working memory is freed up for the work that actually compounds: new strategies, new experiments, new products.
 
